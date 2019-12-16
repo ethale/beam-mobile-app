@@ -248,19 +248,17 @@ class BrushingHstoryComponent extends Component {
         />
 
         <View>
-          {this.state.entry.id > 0 ? (
-            <TouchableHighlight onPress={() => this.remove(navigate)}>
-              <View style={styles.deleteButton}>
-                <Text style={styles.deleteText}>
-                  <Icon name="save" /> Delete
-                </Text>
-              </View>
-            </TouchableHighlight>
-          ) : null}
           <TouchableHighlight onPress={() => this.save(navigate)}>
             <View style={styles.saveButton}>
               <Text style={styles.buttonText}>
                 <Icon name="save" /> Save
+              </Text>
+            </View>
+          </TouchableHighlight>
+          <TouchableHighlight onPress={() => navigate('Home')}>
+            <View style={styles.cancelButton}>
+              <Text style={styles.cancelText}>
+                <Icon name="ban" /> Cancel
               </Text>
             </View>
           </TouchableHighlight>
@@ -303,16 +301,7 @@ export const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
   },
-  deleteButton: {
-    backgroundColor: '#cd0000',
-    width: '100%',
-    justifyContent: 'center',
-    textAlign: 'center',
-    paddingTop: 10,
-    paddingBottom: 10,
-    marginTop: 15,
-  },
-  deleteText: {
+  cancelText: {
     color: '#ffffff',
     fontSize: 15,
     paddingLeft: 20,
@@ -320,6 +309,15 @@ export const styles = StyleSheet.create({
   },
   saveButton: {
     backgroundColor: '#daff00',
+    width: '100%',
+    justifyContent: 'center',
+    textAlign: 'center',
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginTop: 15,
+  },
+  cancelButton: {
+    backgroundColor: '#cd0000',
     width: '100%',
     justifyContent: 'center',
     textAlign: 'center',

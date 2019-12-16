@@ -74,6 +74,18 @@ class MemberComponent extends Component {
       .padStart(2, 0)}`;
   }
 
+  async remove(entry) {
+    await BrushingDataService.removeEntry(
+      this.state.member.id,
+      entry,
+    );
+
+    let updateHistory = await BrushingDataService.getBrushingHistory(
+      this.state.member.id,
+    );
+    this.setState({brushingData: updateHistory});
+  }
+
   brushingDurationFormat(duration: number) {
     const hours = Math.floor(duration / 3600);
     const minutes = Math.floor((duration % 3600) / 60);
@@ -228,31 +240,6 @@ class MemberComponent extends Component {
             {this.state.member.shipping_zip_code}
           </Text>
         </View>
-
-        <Text style={styles.historyTitle}>Brushing History</Text>
-        <View style={styles.listArea}>
-          <FlatList
-            data={this.state.brushingData}
-            renderItem={({item}) => (
-              <TouchableOpacity
-                onPress={() =>
-                  navigate('Entry', {
-                    memberId: this.state.member.id,
-                    entry: item,
-                  })
-                }>
-                <Text style={styles.brushingItem}>
-                  {`${this.brushingHistoryDateFormat(
-                    item.startDate,
-                  )} for  ${this.brushingDurationFormat(
-                    item.durationInSeconds,
-                  )}`}
-                </Text>
-              </TouchableOpacity>
-            )}
-            keyExtractor={item => item.id.toString()}
-          />
-        </View>
         <TouchableHighlight
           onPress={() => navigate('Entry', {memberId: this.state.member.id})}>
           <View style={styles.addButton}>
@@ -261,6 +248,38 @@ class MemberComponent extends Component {
             </Text>
           </View>
         </TouchableHighlight>
+        <Text style={styles.historyTitle}>Brushing History</Text>
+        <View style={styles.listArea}>
+          <FlatList
+            data={this.state.brushingData}
+            renderItem={({item}) => (
+              <View style={{flex: 1, flexDirection: "row", paddingTop: 10, paddingBottom: 10}}>
+                <TouchableOpacity
+                  style={styles.itemContainer}
+                  onPress={() =>
+                    navigate('Entry', {
+                      memberId: this.state.member.id,
+                      entry: item,
+                    })
+                  }>
+                  <Text style={styles.brushingItem}>
+                    {`${this.brushingHistoryDateFormat(
+                      item.startDate,
+                    )} for  ${this.brushingDurationFormat(
+                      item.durationInSeconds,
+                    )}`}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.deleteButton} onPress={() => this.remove(item)}>
+                  <Text style={styles.deleteText}>
+                    <Icon name="trash" />
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            )}
+            keyExtractor={item => item.id.toString()}
+          />
+        </View>
       </View>
     );
   }
@@ -283,6 +302,17 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     paddingTop: 10,
     paddingBottom: 10,
+  },
+  deleteButton: {
+    backgroundColor: '#cd0000',
+    justifyContent: 'center',
+    textAlign: 'center',
+    width: '15%',
+  },
+  deleteText: {
+    color: '#ffffff',
+    fontSize: 15,
+    textAlign: 'center',
   },
   addressSection: {
     paddingTop: 5,
@@ -319,12 +349,16 @@ export const styles = StyleSheet.create({
   listArea: {
     height: '65%',
   },
+  itemContainer: {
+    width: '85%'
+  },
   brushingItem: {
     width: '100%',
     textAlign: 'center',
     paddingTop: 15,
     paddingBottom: 15,
     borderTopWidth: 1,
+    borderBottomWidth: 1,
   },
 });
 
