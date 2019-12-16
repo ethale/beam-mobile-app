@@ -34,8 +34,11 @@ target 'BeamDentalApp' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-
-
+  pod 'RNDateTimePicker', :podspec => '../node_modules/react-native-gesture-handler/RNGestureHandler.podspec'
+  pod 'RNAsyncStorage', :podspec => '../node_modules/@react-native-community/async-storage/RNCAsyncStorage.podspec'
+  pod 'RNDateTimePicker', :podspec => '../node_modules/@react-native-community/async-storage/RNDateTimePicker.podspec'
+  pod 'RNSVG', :podspec => '../node_modules/react-native-svg/RNSVG.podspec'
+  pod 'RNVectorIcons', :podspec => '../node_modules/react-native-vector-icons/RNVectorIcons.podspec'
 
   target 'BeamDentalAppTests' do
     inherit! :search_paths
