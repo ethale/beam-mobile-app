@@ -1,0 +1,112 @@
+[
+    {
+      "id": 62,
+      "primary_insured_id": 249,
+      "name": "Remy LeBeau",
+      "effective_date": "2018-01-01",
+      "terminated_at": null,
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 13,
+      "primary_insured_id": 0,
+      "name": "Remy LeBeau",
+      "effective_date": "2018-01-01",
+      "terminated_at": null,
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 43,
+      "primary_insured_id": null,
+      "name": "Remy LeBeau",
+      "effective_date": "2018-01-01",
+      "terminated_at": null,
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 14,
+      "primary_insured_id": 0,
+      "name": "Remy LeBeau",
+      "effective_date": "2018-01-01",
+      "terminated_at": null,
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 67,
+      "primary_insured_id": null,
+      "name": "Remy LeBeau",
+      "effective_date": "2017-01-01",
+      "terminated_at": "2017-06-30",
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 24,
+      "primary_insured_id": 34,
+      "name": "Remy LeBeau",
+      "effective_date": "2018-01-01",
+      "terminated_at": null,
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 52,
+      "primary_insured_id": null,
+      "name": "Remy LeBeau",
+      "effective_date": "2017-01-01",
+      "terminated_at": null,
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 48,
+      "primary_insured_id": null,
+      "name": "Remy LeBeau",
+      "effective_date": "2018-01-01",
+      "terminated_at": "2018-10-31",
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 53,
+      "primary_insured_id": null,
+      "name": "Remy LeBeau",
+      "effective_date": "2017-01-01",
+      "terminated_at": null,
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    },
+    {
+      "id": 39,
+      "primary_insured_id": null,
+      "name": "Remy LeBeau",
+      "effective_date": "2017-01-11",
+      "terminated_at": "2017-12-31",
+      "shipping_address": "616 Thieves' Guild St.",
+      "shipping_city": "Columbus",
+      "shipping_state": "OH",
+      "shipping_zip_code": "43215"
+    }
+  ]
