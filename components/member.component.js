@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   TouchableHighlight,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MemberInformationService from '../services/member-info.service';
@@ -75,15 +76,28 @@ class MemberComponent extends Component {
   }
 
   async remove(entry) {
-    await BrushingDataService.removeEntry(
-      this.state.member.id,
-      entry,
+    Alert.alert(
+      'Are you sure?',
+      `Are you sure you would like to delete the record from ${this.brushingHistoryDateFormat(entry.startDate)}?`,
+      [
+        {
+          text: 'Cancel',
+          onPress: () => {},
+        },
+        {text: 'OK', onPress: async () => {
+          await BrushingDataService.removeEntry(
+            this.state.member.id,
+            entry,
+          );
+      
+          let updateHistory = await BrushingDataService.getBrushingHistory(
+            this.state.member.id,
+          );
+          this.setState({brushingData: updateHistory});
+        }},
+      ],
+      {cancelable: false},
     );
-
-    let updateHistory = await BrushingDataService.getBrushingHistory(
-      this.state.member.id,
-    );
-    this.setState({brushingData: updateHistory});
   }
 
   brushingDurationFormat(duration: number) {
@@ -231,6 +245,7 @@ class MemberComponent extends Component {
         <Text style={styles.nameText}>{this.state.member.name}</Text>
 
         <View style={styles.addressSection}>
+          <Text style={styles.addressHeader}>Shipping Address</Text>
           <Text style={styles.addressText}>
             {this.state.member.shipping_address}
           </Text>
@@ -318,6 +333,11 @@ export const styles = StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 5,
     justifyContent: 'center',
+  },
+  addressHeader: {
+    textAlign:'center',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
   addressText: {
     width: '100%',

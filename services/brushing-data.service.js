@@ -5,9 +5,12 @@ export default class BrushingDataService {
   static historyIdPrefix = 'beam.id.member';
 
   static async getBrushingHistory(memberId) {
-    return JSON.parse(
+    let history = JSON.parse(
       await AsyncStorage.getItem(`${this.historyPrefix}${memberId}`),
     );
+
+    history.sort((a, b) => (new Date(a.startDate) < new Date(b.startDate)) ? 1 : -1);
+    return history;
   }
 
   static async addEntry(memberId, entry) {

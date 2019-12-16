@@ -242,6 +242,7 @@ class BrushingHstoryComponent extends Component {
         </TouchableOpacity>
         <Text style={styles.headerText}>Duration (seconds)</Text>
         <TextInput
+          style={styles.durationInput}
           defaultValue={this.state.entry.durationInSeconds.toString()}
           keyboardType={'numeric'}
           onChangeText={text => this.changeDuration(text)}
@@ -265,7 +266,7 @@ class BrushingHstoryComponent extends Component {
         </View>
         {this.state.showDatePicker && (
           <DateTimePicker
-            value={this.state.entry.startDate}
+            value={new Date(this.state.entry.startDate)}
             mode={this.state.datePickerMode}
             is24Hour={true}
             display="default"
@@ -300,6 +301,9 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     paddingTop: 10,
     paddingBottom: 10,
+  },
+  durationInput: {
+    textAlign: 'center',
   },
   cancelText: {
     color: '#ffffff',
