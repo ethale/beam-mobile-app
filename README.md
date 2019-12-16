@@ -23,7 +23,7 @@ Building under iOS, when building there will be some directions shown in xcode a
 
 I am using unit tests with mocks for the services and snapshot tests for the component renders.
 
-Run 'npm test' to run the jest tests for the app.
+After running a 'npm i' to get all of the dependencies in place, run 'npm test' to run the jest tests for the app.
 
 ## Disclosure
 
