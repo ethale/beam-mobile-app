@@ -9,7 +9,10 @@ export default class BrushingDataService {
       await AsyncStorage.getItem(`${this.historyPrefix}${memberId}`),
     );
 
-    history.sort((a, b) => (new Date(a.startDate) < new Date(b.startDate)) ? 1 : -1);
+    if(history) {
+      history.sort((a, b) => (new Date(a.startDate) < new Date(b.startDate)) ? 1 : -1);
+    }
+
     return history;
   }
 
